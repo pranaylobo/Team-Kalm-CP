@@ -1,51 +1,64 @@
 
-def branches(node,current_level,key):
+def branches(node,current_level,key,node_store):
     temp_current_level = current_level.copy()
+    # print(node_store)
 
     for index,num in enumerate(node):
-        
-        current_root = temp_current_level["root"+str(num)].copy()
 
-        current_leafnode = current_root[0].get("leafnodes"+str(num)).copy()
+        
+        
+        current_root = temp_current_level[num].copy()
+        current_leafnode = current_root[0].get(num).copy()
 
         # print(current_leafnode)
-
         if len(current_leafnode) == 1:
-            print("Recursion2",current_level)
+            # print(node_store,current_level)
+            for k,v in current_level.items():
+                for k1,v1 in v[0].items():
+                    print(node_store[0],k, *v1)
+                    # print(current_level)
+                    
 
+
+                # for keys,values in v:
+                #     print(keys,values)
+            break
         else:
 
+            
+            
+            node_store.insert(0,num)
             key=0
-
-            print(*current_leafnode)
-
             current_level={}
-            main(current_leafnode,key,current_level)
+            main(current_leafnode,key,current_level,node_store)
 
         
 
 
         
-def main(node,key,current_level):
+def main(node,key,current_level,node_store):
 
     
 
     #level0
 
     if key == len(node):
-
         key=0
 
-        print("Recurrsion1",current_level)
+        # print("First Level",current_level)
 
-        branches(node,current_level,key)
+        
+
+        branches(node,current_level,key,node_store)
 
 
     else:
 
         copy_node=node.copy()
 
-        node.pop(key)  #pop root from the array
+        poped=node.pop(key)  #pop root from the array
+
+        # print("Poped",poped)
 
     
         root_level=[]
@@ -57,25 +70,15 @@ def main(node,key,current_level):
 
             # temp.append(node[i])
         # current_level.update({"root"+str(copy_node[key]):copy_node[key],"leafnodes"+str(copy_node[key]):root_level})
-            current_level.update({"root"+str(copy_node[key]):[{"leafnodes"+str(copy_node[key]):root_level}]})
+            current_level.update({copy_node[key]:[{copy_node[key]:root_level}]})
+
+            
+        main(copy_node,key+1,current_level,node_store)
 
 
-        # print(copy_node[key],*root_level)
-
-        # print(current_level)
-
-        # print(*temp)
-
-        main(copy_node,key+1,current_level)
-
-
-
-    #Now print for all the keys breadth wise
-
-
-
-node=[1,2,3]
+node=[1,2,3,4]
 key=0
 
 current_level={}
-main(node,key,current_level)
+node_store=[]
+main(node,key,current_level,node_store)
