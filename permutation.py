@@ -15,18 +15,14 @@ def branches(node,current_level,key,node_store):
             # print(node_store,current_level)
             for k,v in current_level.items():
                 for k1,v1 in v[0].items():
-                    print(node_store[0],k, *v1)
-                    # print(current_level)
-                    
-
-
-                # for keys,values in v:
-                #     print(keys,values)
+                    print(node_store[0] ,k, *v1)
+                
             break
         else:
 
+
             
-            
+            print(num)
             node_store.insert(0,num)
             key=0
             current_level={}
@@ -34,8 +30,6 @@ def branches(node,current_level,key,node_store):
 
         
 
-
-        
 def main(node,key,current_level,node_store):
 
     
@@ -46,9 +40,6 @@ def main(node,key,current_level,node_store):
         key=0
 
         # print("First Level",current_level)
-
-        
-
         branches(node,current_level,key,node_store)
 
 
@@ -76,7 +67,7 @@ def main(node,key,current_level,node_store):
         main(copy_node,key+1,current_level,node_store)
 
 
-node=[1,2,3,4]
+node=[1,2,3]
 key=0
 
 current_level={}
