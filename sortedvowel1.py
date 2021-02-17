@@ -1,19 +1,28 @@
+from itertools import permutations
+from itertools import combinations
 class Solution:
     def countVowelStrings(self, n: int) -> int:
-        # print(("a" + "a")*2)
         
+        
+    
+        n=n-1
+        vowels={}
+  
+        # Print the obtained permutations  
+         
+        
+     
+        comb = combinations(["a","e","i","o","u"], n) 
         arr=["a","e","i","o","u"]
         
-        vowels={}
-        n=n-1
-        
-        for index,number in enumerate(arr):
             
-            con=number *n
-            
-            vowels.update({con:arr[index:]})
-            
-            
+        for index,number in enumerate(list(comb)): 
+
+            temp=list[number]
+
+            vowels.update({temp:arr[index:]})
             
         print(vowels)
-        print(len(con)*5 + len(con)*4 + len(con)*3 +len(con)*2 + len(con)*1)
+ 
+        
+            
