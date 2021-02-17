@@ -11,21 +11,9 @@ class Solution:
             
             con=number *n
             
-            vowels.update({con:arr})
+            vowels.update({con:arr[index:]})
+            
             
             
         print(vowels)
-            
-            
-            
-
-        
-        
-        
-    
-            
-        
-        
-
-        
-        
+        print(len(con)*5 + len(con)*4 + len(con)*3 +len(con)*2 + len(con)*1)
