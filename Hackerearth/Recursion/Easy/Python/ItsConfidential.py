@@ -1,32 +1,25 @@
 import sys
 
-def middle_char(txt):
+def middle_char(txt,mid1):
     
     if len(txt)>0:
 
-        mid = txt[(len(txt)-1)//2]
-        int_mid=txt.index(mid)
+        mid = int((len(txt) - 1)/2)
+        
 
-        sys.stdout.write(mid)
+        print(txt[mid],end="")
+
+        middle_char(txt[:mid],mid1)
+        middle_char(txt[mid+1:],mid1)
        
-        middle_char(txt[:int_mid])
-        middle_char(txt[int_mid+1:])
-
         
 
-        
-
-
-# text="abc"
-# mid1 = text[(len(text)-1)//2]
-# middle_char(text)
-
-
-x=int(input())
-
-for i in range(0,x):
+mid1=0
+for i in range(int(input())):
     x1=int(input())
-    middle_char(str(input()))
+    text=input()
+    var=middle_char(text,mid1)
+    print("\n")
 
 
 
